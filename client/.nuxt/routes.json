@@ -1,0 +1,32 @@
+[
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\dashboard.vue",
+    "chunkName": "pages/dashboard"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\login.vue",
+    "chunkName": "pages/login"
+  },
+  {
+    "name": "post",
+    "path": "/post",
+    "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\post.vue",
+    "chunkName": "pages/post"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\register.vue",
+    "chunkName": "pages/register"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]
