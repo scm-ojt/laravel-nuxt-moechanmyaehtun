@@ -79,11 +79,12 @@ export default {
     redirect:{
       login:'/login',
       logout:'/',
-      home:'/dashboard',
+      home:'/post',
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+
   }
 }

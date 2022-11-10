@@ -4,22 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\PostUpdateRequest;
 
 
 
 class PostsController extends Controller
 {
-    public function index(Request $request){
+    public function index(){
 
-        if($request['title']!= null){
-            $posts = Post::where('title','LIKE','%'.$request->title.'%')->orderBy('id', 'desc');
-        }else{
-            $posts = Post::orderBy('id', 'desc')->get();
 
-        }
-        return $posts;
+         return post::when(request('search'),function($query){
+            $query->where('title','LIKE','%'.request('search').'%');
+         })->orderBy('id', 'desc')->paginate(3);
 
     }
 
@@ -42,7 +40,7 @@ class PostsController extends Controller
 
     }
 
-    public function update( PostRequest $request, Post $post){
+    public function update( PostUpdateRequest $request, Post $post){
         $post->title = $request['title'];
         if(request()->file('image')){
             $file = request()->file('image');

@@ -14,9 +14,13 @@
                   class="input"
                   name="name"
                   v-model="name"
-                  required
 
         ></b-form-input>
+         <small
+                    v-if="this.error.name"
+                    class="text-danger font-weight-bolder"
+                    v-html="this.error.name"
+                  />
       </b-form-group>
 
          <b-form-group
@@ -29,6 +33,11 @@
                   name="email"
                   v-model="email"
         ></b-form-input>
+         <small
+                    v-if="this.error.email"
+                    class="text-danger font-weight-bolder"
+                    v-html="this.error.email"
+                  />
       </b-form-group>
          <b-form-group
         id="input-group-1"
@@ -40,6 +49,11 @@
                   name="password"
                   v-model="password"
         ></b-form-input>
+        <small
+                    v-if="this.error.password"
+                    class="text-danger font-weight-bolder"
+                    v-html="this.error.password"
+                  />
       </b-form-group>
 
       <b-button type="submit" variant="outline-secondary" block pill class="mb-3">Register</b-button>
@@ -64,25 +78,38 @@ import Notification from "~/components/Notification";
       name: '',
       email: '',
       password: '',
-      error: null
+       error:{
+        name:'',
+       email:'',
+        password:'',
+      },
     }
   },
      methods: {
     async register() {
       try {
         await this.$axios.post('http://localhost:8000/api/register', {
+
             name: this.name,
             email: this.email,
-            password: this.password
-        })
 
-        this.$router.push('/')
-      } catch (e) {
-        this.error = e.response.data.message
+            password: this.password,
+
+        })
+        this.$router.push('/login')
+      }catch(error) {
+          error.response.data.errors.name ? this.error.name = error.response.data.errors.name[0] : this.error.name= '';
+          error.response.data.errors.email ? this.error.email = error.response.data.errors.email[0] : this.error.email ="";
+          error.response.data.errors.password ? this.error.password = error.response.data.errors.password[0] : this.error.password ="";
       }
+
+
+
+      }
+
     }
   }
-}
+
 </script>
 
 
