@@ -30,7 +30,7 @@ Route::post('/register',[RegisterController::class,'store']);
 //api
 Route::get('post',[PostsController::class, 'index']);
     Route::get('post/edit/{post}',[PostsController::class,'edit']);
-    Route::put('post/edit/{post}',[PostsController::class,'update']);
+    Route::post('post/edit/{post}',[PostsController::class,'update']);
     Route::post('post/create',[PostsController::class,'store']);
     Route::delete('post/delete/{post}',[PostsController::class, 'delete']);
 

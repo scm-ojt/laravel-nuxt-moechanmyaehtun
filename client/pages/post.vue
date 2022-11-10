@@ -6,7 +6,23 @@
 
 </div>
 <div class="col-md-6">
-<button class="btn btn-primary " @click="createpost">Create</button>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-primary " @click="createpost">Create</button>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="form1" class="form-control" placeholder="search"/>
+
+  </div>
+  <button type="button" class="btn btn-primary">
+    search
+  </button>
+</div>
+    </div>
+  </div>
+
 </div>
 </div>
 <div class="row mx-0 ">
@@ -19,7 +35,7 @@
     <label for="" class="text-right mb-4 pl-4" >Title</label>
   </div>
   <div class="col-md-8">
-     <input type="text" v-model="post.title" placeholder="Enter title" class="form-control "  >
+     <input type="text" v-model="post.title" placeholder="Enter title" class="form-control " name="title"  >
 
   </div>
 </div>
@@ -30,7 +46,7 @@
     <label for="" class="text-right mb-4 pl-4">Image</label>
   </div>
   <div class="col-md-8">
-     <img :src="'http://127.0.0.1:8000/'+ post.image" width="100px" height="100px" alt="img"  @submit.prevent="isEditMode ? edit('post'):onUpload()">
+     <img :src="'http://127.0.0.1:8000/'+ post.image" width="100px" height="100px" alt="img"   @submit.prevent="isEditMode ? edit('post'):onUpload()">
       <input type="file" @change="onFileSelected" class="form-control ">
   </div>
 </div>
@@ -118,6 +134,7 @@ export default {
         onFileSelected(event){
           this.selectedFile = event.target.files[0]
         },
+
         onUpload(){
           const fd = new FormData();
           fd.append('image',this.selectedFile,this.selectedFile.name)
@@ -129,9 +146,7 @@ export default {
         this.post.title = post.title;
         this.post.image = post.image;
 
-          }
-
-          )
+          })
         },
 
       edit(post){
@@ -142,21 +157,20 @@ export default {
         this.post.image = post.image;
 
       },
+
       update(){
 
-        // const fd = new FormData();
-        //
-        //   fd.append('title',this.post.title)
-          // const formData = new FormData();
-          // formData.append('image',this.selectedFile,this.selectedFile.name)
-         axios.put(`http://127.0.0.1:8000/api/post/edit/${this.post.id}` , this.post)
-        .then(response => {
-          this.post();
-           this.post.id = post.id;
-        this.post.title = post.title;
-        this.post.image = post.image;
+          const data = new FormData();
+          data.append('image',this.selectedFile,this.selectedFile.name)
+          data.append('title',this.post.title)
+         axios.post(`http://127.0.0.1:8000/api/post/edit/${this.post.id}` , data)
 
-        })
+          .then(response =>{this.posts();
+           this.post.id = post.id;
+        this.post.title = '';
+        this.post.image = '';
+
+          })
       },
       destory(id){
 
