@@ -7,11 +7,10 @@
     <template v-if="$auth.loggedIn">
        <b-nav-item >    Welcome   {{ $auth.user.name }}
        </b-nav-item>
-       <b-nav-item to="/dashboard">Dashboard
-       </b-nav-item>
+       
        <b-nav-item to="/post">Post
        </b-nav-item>
-    <b-nav-item href="#" @click.prevent="logout()">Logout</b-nav-item>
+    <b-nav-item @click.prevent="logout()">Logout</b-nav-item>
     </template>
     <template v-else>
     <b-nav-item to="/login">Login</b-nav-item>

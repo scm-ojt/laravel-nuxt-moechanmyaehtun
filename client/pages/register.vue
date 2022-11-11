@@ -96,7 +96,7 @@ import Notification from "~/components/Notification";
             password: this.password,
 
         })
-        this.$router.push('/login')
+        this.$router.push('/')
       }catch(error) {
           error.response.data.errors.name ? this.error.name = error.response.data.errors.name[0] : this.error.name= '';
           error.response.data.errors.email ? this.error.email = error.response.data.errors.email[0] : this.error.email ="";
