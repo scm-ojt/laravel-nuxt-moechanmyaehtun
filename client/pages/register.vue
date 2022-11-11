@@ -1,5 +1,5 @@
 <template>
-<b class="row mt-5">
+<b class="row mt-5 pt-5" >
 
         <b class="col-md-5 mx-auto  card">
           <h2 class="py-3 text-center">Register</h2>

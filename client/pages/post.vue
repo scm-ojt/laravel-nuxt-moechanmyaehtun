@@ -68,6 +68,7 @@
                   height="100px"
                   alt="img"
                   v-if="isEditMode"
+
                 />
 
                 <input
@@ -76,6 +77,7 @@
                   @change="onFileSelected"
                   class="form-control pt-1"
                   v.model="post.image"
+                   ref="null"
                 />
                 <small
                   v-if="this.error.image"
@@ -142,9 +144,9 @@ import Form from "vform";
 import axios from "axios";
 import Vue from "vue";
 import VsPagination from "@vuesimple/vs-pagination";
-Vue.component("vs-pagination", VsPagination);
 import Swal from "sweetalert2";
 
+Vue.component("vs-pagination", VsPagination);
 export default {
   middleware: ["auth"],
   data() {
@@ -173,7 +175,6 @@ export default {
       const response = await axios.get(
         `http://127.0.0.1:8000/api/post?page=${page}&search=${this.search}`
       );
-      console.log(response.data);
       this.postsData = response.data;
       this.totalpages = response.data.last_page;
     },
