@@ -109,11 +109,10 @@
     </tr>
 
   </table>
-<!-- <pagination :data="postsData" @pagination-change-page="posts"></pagination> -->
+ <vs-pagination :total-pages="totalpages" @change="posts"></vs-pagination>
 
 </div>
 
- <!-- <vue-pagination-2></vue-pagination-2> -->
 
 
 </div>
@@ -123,6 +122,9 @@
 <script>
 import Form from "vform";
 import axios from "axios";
+import Vue from 'vue';
+import VsPagination from '@vuesimple/vs-pagination'
+Vue.component('vs-pagination', VsPagination);
 
 export default {
    middleware:['auth'],
@@ -144,7 +146,7 @@ export default {
 
       }),
 
-
+       totalpages:0,
       selectedFile:null
     }
 
@@ -156,7 +158,7 @@ export default {
             const response = await axios.get(`http://127.0.0.1:8000/api/post?page=${page}&search=${this.search}`);
             console.log(response.data);
             this.postsData=response.data;
-
+              this.totalpages=response.data.last_page
         },
         createpost(){
           this.isEditMode=false;
