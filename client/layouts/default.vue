@@ -1,10 +1,12 @@
 <template>
 <div>
-<b-navbar toggleable="lg" type="dark" variant="danger fixed-top " >
+<b-navbar toggleable="sm" type="dark" variant="danger fixed-top " >
 
   <b-navbar-brand to="/">Nuxt</b-navbar-brand>
   <b-navbar-nav class="ml-auto">
     <template v-if="$auth.loggedIn">
+       <b-nav-item >    Welcome   {{ $auth.user.name }}
+       </b-nav-item>
        <b-nav-item to="/dashboard">Dashboard
        </b-nav-item>
        <b-nav-item to="/post">Post

@@ -42,9 +42,9 @@ export default {
   // router:{
   //   middleware:['auth']
   // },
-  // axios: {
-  //   baseURL: 'http://localhost:8000/api'
-  // },
+  axios: {
+    baseURL: 'http://localhost:8000/'
+  },
   auth:{
     strategies: {
       'laravelSanctum': {

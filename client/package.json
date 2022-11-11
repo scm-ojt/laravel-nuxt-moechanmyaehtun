@@ -17,6 +17,7 @@
     "core-js": "^3.25.3",
     "laravel-vue-pagination": "^4.0.0",
     "nuxt": "^2.13.3",
+    "sweetalert2": "^11.6.8",
     "vform": "^2.1.2",
     "vue": "^2.7.10",
     "vue-pagination-2": "^3.1.0",
