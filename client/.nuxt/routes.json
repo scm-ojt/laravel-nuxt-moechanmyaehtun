@@ -3,30 +3,35 @@
     "name": "dashboard",
     "path": "/dashboard",
     "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\dashboard.vue",
-    "chunkName": "pages/dashboard"
+    "chunkName": "pages/dashboard",
+    "_name": "_731e1b3a"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_609a36e2"
   },
   {
     "name": "post",
     "path": "/post",
     "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\post.vue",
-    "chunkName": "pages/post"
+    "chunkName": "pages/post",
+    "_name": "_cbae7b2c"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\register.vue",
-    "chunkName": "pages/register"
+    "chunkName": "pages/register",
+    "_name": "_3d769426"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Apache24\\\\htdocs\\\\nuxt\\\\client\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_060b4178"
   }
 ]

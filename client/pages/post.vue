@@ -62,14 +62,17 @@
                 <label for="" class="text-right mb-4 pl-4">Image</label>
               </div>
               <div class="col-md-8">
-                <img
+                <div v-if="isEditMode">
+                   <img
                   :src="'http://127.0.0.1:8000/' + post.image"
                   width="100px"
                   height="100px"
                   alt="img"
-                  v-if="isEditMode"
 
                 />
+                </div>
+
+
 
                 <input
                   type="file"
@@ -229,6 +232,7 @@ export default {
           this.post.id = "";
           this.post.title = "";
           this.post.image = "";
+          this.isEditMode = false;
         })
              .catch((error) => {
           error.response.data.errors.title

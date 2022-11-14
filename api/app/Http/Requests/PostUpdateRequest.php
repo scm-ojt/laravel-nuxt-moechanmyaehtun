@@ -25,14 +25,14 @@ class PostUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'image' => 'mimes:jpeg,png,jpg',
         ];
     }
     public function messages()
     {
         return [
             'title.required' => 'Title is required!',
-            'image.required' => 'The image field is required'
+
         ];
     }
 }
