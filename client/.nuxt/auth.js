@@ -17,7 +17,7 @@ export default function (ctx, inject) {
   "watchLoggedIn": true,
   "redirect": {
     "login": "/login",
-    "logout": "/login",
+    "logout": "/",
     "home": "/post",
     "callback": "/login"
   },

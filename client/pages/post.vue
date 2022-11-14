@@ -159,11 +159,12 @@ export default {
         title: "",
         image: "",
       },
-      post: new Form({
+
+      post:{
         id: "",
         title: "",
         image: "",
-      }),
+      },
 
       totalpages: 0,
       selectedFile: null,
@@ -172,8 +173,8 @@ export default {
 
   methods: {
     async posts(page = 1) {
-      const response = await axios.get(
-        `http://127.0.0.1:8000/api/post?page=${page}&search=${this.search}`
+      const response = await this.$axios.get(
+        `api/post?page=${page}&search=${this.search}`
       );
       this.postsData = response.data;
       this.totalpages = response.data.last_page;
@@ -190,9 +191,11 @@ export default {
     },
 
     onUpload() {
-      this.post
-        .post("http://127.0.0.1:8000/api/post/create")
-        .then((response) => {
+       const fd = new FormData();
+      typeof this.post.image == 'object' ? fd.append('image',this.post.image,this.post.image.name) : this.post.image = ''
+          fd.append('title',this.post.title)
+          this.$axios.post('api/post/create',fd)
+          .then((response) => {
           this.posts();
           this.post.id = "";
           this.post.title = "";
@@ -206,6 +209,7 @@ export default {
             ? (this.error.image = error.response.data.errors.image[0])
             : (this.error.image = "");
         });
+
     },
 
     edit(post) {
@@ -216,14 +220,25 @@ export default {
     },
 
     update() {
-      this.post
-        .post(`http://127.0.0.1:8000/api/post/edit/${this.post.id}`)
-        .then((response) => {
+       const data = new FormData();
+      typeof this.post.image == 'object' ? data.append('image',this.post.image,this.post.image.name) : this.post.image = ''
+        data.append('title',this.post.title)
+        this.$axios.post(`api/post/edit/${this.post.id}` , data)
+          .then((response) => {
           this.posts();
           this.post.id = "";
           this.post.title = "";
           this.post.image = "";
+        })
+             .catch((error) => {
+          error.response.data.errors.title
+            ? (this.error.title = error.response.data.errors.title[0])
+            : (this.error.title = "");
+          error.response.data.errors.image
+            ? (this.error.image = error.response.data.errors.image[0])
+            : (this.error.image = "");
         });
+
     },
     destory(id) {
       Swal.fire({

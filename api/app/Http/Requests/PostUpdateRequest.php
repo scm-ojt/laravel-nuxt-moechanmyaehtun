@@ -25,7 +25,7 @@ class PostUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            // 'image' => 'required|mimes:jpeg,png,jpg',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
         ];
     }
     public function messages()

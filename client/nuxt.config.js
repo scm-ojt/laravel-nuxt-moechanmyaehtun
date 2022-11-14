@@ -42,47 +42,41 @@ export default {
   // router:{
   //   middleware:['auth']
   // },
-  // axios: {
-  //   baseURL: 'http://localhost:8000/'
-  // },
-  auth:{
+  axios: {
+    baseURL: 'http://localhost:8000/'
+  },
+  auth: {
     strategies: {
       'laravelSanctum': {
         provider: 'laravel/sanctum',
         url: 'http://localhost:8000',
 
-        endpoints:{
-          login:{
-            url:'/api/login'
+        endpoints: {
+          login: {
+            url: '/api/login'
           },
-          logout:{
-            url:'/api/logout'
+          logout: {
+            url: '/api/logout'
           },
-          register:{
-            url:'/api/register'
-          },
-
-          user:{
-            url:'/api/user'
+          register: {
+            url: '/api/register'
           },
 
-
+          user: {
+            url: '/api/user'
+          },
         },
-        user:{
+        user: {
           property: false
         }
-
       }
-
-
     },
-    redirect:{
-      login:'/login',
-      logout:'/',
-      home:'/post',
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/post',
     }
   },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
 

@@ -1,10 +1,7 @@
 <template>
-
       <b class="row mt-5 pt-5">
-
         <b class="col-md-5 mx-auto  card">
           <h2 class="py-3 text-center">Login</h2>
-
       <b-form @submit.prevent="login ">
          <b-form-group
         id="input-group-1"
@@ -39,15 +36,10 @@
                     v-html="this.error.password"
                   />
       </b-form-group>
-
       <b-button type="submit" variant="outline-secondary" block pill class="mb-3">Log In</b-button>
-
-
       </b-form>
       </b>
       </b>
-
-
 </template>
 
 <script>
